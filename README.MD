@@ -124,4 +124,4 @@ Also you can pass it configured in your routes as a `pick` config option returni
 ```
 
 
-_It will returns only fields `id`, `slug` and `title` on response_
+_It will returns only fields `id`, `slug` and `title` on response body_
