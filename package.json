@@ -1,21 +1,36 @@
 {
   "name": "strapi-plugin-tunning",
-  "version": "0.0.0",
-  "description": "This is the description of the plugin.",
+  "version": "1.0.0",
+  "description": "A strapi plugin to make developer lifes easy.",
   "dependencies": {
-    "deepPick": "^1.1.1"
+    "deepPick": "1.1.1"
   },
   "author": {
-    "name": "A Strapi developer",
-    "email": "",
-    "url": ""
+    "name": "André Ciornavei",
+    "email": "andre.ciornavei@gmail.com",
+    "url": "https://github.com/andreciornavei"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer",
-      "email": "",
-      "url": ""
+      "name": "André Ciornavei",
+      "email": "andre.ciornavei@gmail.com",
+      "url": "https://github.com/andreciornavei"
     }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreciornavei/strapi-plugin-tunning.git"
+  },
+  "homepage": "https://github.com/andreciornavei/strapi-plugin-tunning#readme",
+  "bugs": {
+    "url": "https://github.com/andreciornavei/strapi-plugin-tunning/issues"
+  },
+  "keywords": [
+    "strapi",
+    "input",
+    "filter",
+    "node",
+    "library"
   ],
   "engines": {
     "node": ">=10.0.0",
