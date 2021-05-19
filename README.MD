@@ -152,6 +152,4 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for details.
 
 --- 
 
-💻 &nbsp; Developed by André Ciornavei - [Get in touch!](linkedin)
-
-[linkedin]: https://www.linkedin.com/in/andreciornavei/
+💻 &nbsp; Developed by André Ciornavei - [Get in touch!](https://www.linkedin.com/in/andreciornavei/)
