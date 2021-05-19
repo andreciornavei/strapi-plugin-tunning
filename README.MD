@@ -2,7 +2,7 @@
 
 ## Overview
 
-This plugin was created with intention to implement simple strapi details, fixing some boring and repetitive problems to dealing in every project.
+This plugin implements a simple way to input / output data from the strapi through http requests, correcting some annoying and repetitive problems to deal with each project.
 
 ---
 
@@ -100,7 +100,7 @@ _It will force only the input field `accepted` as true to be updated on default 
 
 ### **PICK** Feature - Query Param
 
-You can pass one more type of filter on your query params, the `_pick`, allowing you to select witch field you want to return from api, preventing data overfetching.
+You can pass another type of filter in your query parameters, `_pick`, allowing you to select which field you want to return from the API, avoiding data overfetch.
 
 ```bash
 GET http://localhost:1337/articles?_pick=id,slug,title
