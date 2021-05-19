@@ -1,12 +1,12 @@
 # strapi-plugin-tunning
 
-## Overview
+## 🚀 &nbsp; _Overview_
 
 This plugin implements a simple way to input / output data from the strapi through http requests, correcting some annoying and repetitive problems to deal with each project.
 
 ---
 
-### ⏳ Installation
+## ⏳ &nbsp; _Installation_
 
 With npm:
 ```bash
@@ -19,7 +19,7 @@ yarn add strapi-plugin-tunning
 ```
 
 ---
-### 🚀 **INPUT** - Feature
+### ✨ &nbsp; _**INPUT** - Feature_
 
 In many cases, you will need to test if input is comming up on request `body` or via `multipart/form-data`. To make this verification simple as one line of code, was implemented an util extension to get/set data field or file from request context. So you don't have to worry about how this is happening.
 
@@ -49,7 +49,7 @@ strapi.tunning.input(ctx).set({ foo: "bar" })
 ```
 ---
 
-### 🚀 **KEEP** - Feature
+### ✨ &nbsp; _**KEEP** - Feature_
 
 A utils function to keep only necessary data from context request body:
 
@@ -80,7 +80,7 @@ _It will remove any field from ctx.request.body that is not present on array, pr
 
 ---
 
-### 🚀 **VIRTUAL INPUT** Feature
+### ✨ &nbsp; _**VIRTUAL INPUT** Feature_
 
 Imagine, you have an implicit route that needs to update a specific value of your record, in some cases you could create a new controller just to implement this little specific business rule. But now you can pass this business rule to your route definition.
 
@@ -111,7 +111,7 @@ _It will force only the input field `accepted` as true to be updated on default 
 
 ---
 
-### 🚀 **PICK** Feature - Query Param
+### ✨ &nbsp; _**PICK** Feature - Query Param_
 
 You can pass another type of filter in your query parameters, `_pick`, allowing you to select which field you want to return from the API, avoiding data overfetch.
 
@@ -138,3 +138,20 @@ Also you can pass it configured in your routes as a `pick` config option returni
 
 
 _It will returns only fields `id`, `slug` and `title` on response body_
+
+---
+
+## 🎉 &nbsp;  _Congradulations, You're done._
+
+I hope this plugin helps you in your strapi projects and save a lot of time and code.
+
+---
+## 📜 &nbsp; _License_
+
+This project is under the MIT license. See the [LICENSE](./LICENSE) for details.
+
+--- 
+
+💻 &nbsp; Developed by André Ciornavei - [Get in touch!](linkedin)
+
+[linkedin]: https://www.linkedin.com/in/andreciornavei/
