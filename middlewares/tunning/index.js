@@ -16,7 +16,7 @@ module.exports = strapi => {
       _.forEach(strapi.admin.config.routes, value => {
         if(_.get(value, "config.keep")) value.config.policies.push(POLICY_KEEP_PARAMS);
         if(_.get(value, "config.pick")) value.config.policies.push(POLICY_PICK_OUTPUT);
-        if(_.get(value, "config.virtual_input")) value.config.policies.push(POLICY_INPUT_PARAMS);
+        if(_.get(value, "config.virtual_input")) value.config.policies.unshift(POLICY_INPUT_PARAMS);
         if (_.get(value, 'method') == "GET" && _.get(value, "config")) {
           if (_.get(value, "config.policies")) {
             value.config.policies.push(POLICY_QUERY_PARAMS);
@@ -29,7 +29,7 @@ module.exports = strapi => {
       _.forEach(strapi.config.routes, value => {
         if(_.get(value, "config.keep")) value.config.policies.push(POLICY_KEEP_PARAMS);
         if(_.get(value, "config.pick")) value.config.policies.push(POLICY_PICK_OUTPUT);
-        if(_.get(value, "config.virtual_input")) value.config.policies.push(POLICY_INPUT_PARAMS);
+        if(_.get(value, "config.virtual_input")) value.config.policies.unshift(POLICY_INPUT_PARAMS);
         if (_.get(value, 'method') == "GET" && _.get(value, "config")) {
           if (_.get(value, "config.policies")) {
             value.config.policies.push(POLICY_QUERY_PARAMS);
@@ -44,7 +44,7 @@ module.exports = strapi => {
           _.forEach(plugin.config.routes, value => {
             if(_.get(value, "config.keep")) value.config.policies.push(POLICY_KEEP_PARAMS);
             if(_.get(value, "config.pick")) value.config.policies.push(POLICY_PICK_OUTPUT);
-            if(_.get(value, "config.virtual_input")) value.config.policies.push(POLICY_INPUT_PARAMS);
+            if(_.get(value, "config.virtual_input")) value.config.policies.unshift(POLICY_INPUT_PARAMS);
             if (_.get(value, 'method') == "GET" && _.get(value, "config")) {
               if (_.get(value, "config.policies")) {
                 value.config.policies.push(POLICY_QUERY_PARAMS);
