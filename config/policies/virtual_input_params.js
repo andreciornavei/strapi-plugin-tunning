@@ -32,7 +32,7 @@ module.exports = async (ctx, next) => {
   const route = routes.find(route => route.method == ctx.request.method && route.path == originalPath)
   if (route) {
     if (_.get(route, "config.virtual_input") && _.isObject(route.config.virtual_input)) {
-      _.merge(ctx.request.body, route.config.virtual_input)
+      strapi.plugins.tunning.services.input(ctx).set(route.config.virtual_input)
     }
   }
   await next()
