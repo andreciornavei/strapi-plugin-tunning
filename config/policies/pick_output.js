@@ -30,8 +30,12 @@ module.exports = async (ctx, next) => {
     // ****************************** //
     // FIND ROUTE AND KEEP ITS FIELDS //
     // ****************************** //
+    // ****************************** //
+    // SPLIT TOKEN "?" APPLY CONFIG   //
+    // IF IT ALREADY HAS SOME INPUTED //
+    // ****************************** //
     let picks = []
-    const route = routes.find(route => route.method == ctx.request.method && route.path == originalPath)
+    const route = routes.find(route => route.method == ctx.request.method && route.path == originalPath.split("?")[0])
     if (route) {
       if (Array.isArray(_.get(route, "config.pick"))) {
         picks = _.get(route, "config.pick", [])
