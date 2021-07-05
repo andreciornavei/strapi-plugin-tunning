@@ -8,13 +8,9 @@ module.exports = async (ctx, next) => {
   // ************************************** //
   let originalPath = ctx.request.url.split("?")[0]
   if (ctx.params && Object.keys(ctx.params).length > 0) {
-    const tmpParams = ctx.params
     originalPath = originalPath.split("/").map(partValue => {
-      for (const partKey in tmpParams) {
-        if (tmpParams[partKey] == partValue) {
-          delete tmpParams[partKey]
-          return `:${partKey}`
-        }
+      for (const partKey in ctx.params) {
+        if (ctx.params[partKey] == partValue) return `:${partKey}`
       }
       return partValue
     }).join("/")
