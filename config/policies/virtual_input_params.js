@@ -10,7 +10,7 @@ module.exports = async (ctx, next) => {
   if (ctx.params && Object.keys(ctx.params).length > 0) {
     originalPath = originalPath.split("/").map(partValue => {
       for (const partKey in ctx.params) {
-        if (ctx.params[partKey] == partValue) return `(:.*)`
+        if (ctx.params[partKey] == partValue) return `(:.*\/|(:.*))`
       }
       return partValue
     }).join("\/")
@@ -34,7 +34,7 @@ module.exports = async (ctx, next) => {
   const route = routes.find(route => {
     return (
       route.method == ctx.request.method &&
-      route.path.match(regex)
+      route.path.replace(regex, "true") === "true"
     )
   })
   if (route) {
