@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-tunning",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A strapi plugin that makes it easier to handle the input and output of http request data.",
   "dependencies": {
     "deepPick": "1.1.1"

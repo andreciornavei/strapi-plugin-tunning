@@ -10,10 +10,10 @@ module.exports = async (ctx, next) => {
   if (ctx.params && Object.keys(ctx.params).length > 0) {
     originalPath = originalPath.split("/").map(partValue => {
       for (const partKey in ctx.params) {
-        if (ctx.params[partKey] == partValue) return `:${partKey}`
+        if (ctx.params[partKey] == partValue) return `(:.*)`
       }
       return partValue
-    }).join("/")
+    }).join("\/")
   }
 
   // Get all application routes
@@ -29,7 +29,14 @@ module.exports = async (ctx, next) => {
   // ******************************* //
   // FIND ROUTE AND INPUT ITS FIELDS //
   // ******************************* //
-  const route = routes.find(route => route.method == ctx.request.method && route.path == originalPath)
+  // define a regex separating params
+  const regex = new RegExp(originalPath, 'gm');
+  const route = routes.find(route => {
+    return (
+      route.method == ctx.request.method &&
+      route.path.match(regex)
+    )
+  })
   if (route) {
     if (_.get(route, "config.virtual_input") && _.isObject(route.config.virtual_input)) {
       strapi.plugins.tunning.services.input(ctx).set(route.config.virtual_input)
