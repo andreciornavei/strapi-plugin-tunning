@@ -1,20 +1,19 @@
 const { parseMultipartData } = require('strapi-utils');
+const _ = require('lodash')
+
+function resolveKeepBody(body, fields){
+  const newbody = {}
+  for(const field of fields){
+    _.set(newbody, field, _.get(body, field))
+  }
+  return newbody
+}
 
 module.exports = (ctx, keeps) => {
   if (ctx.is("multipart")) {
     const bodydata = parseMultipartData(ctx).data
-    for (const field in bodydata) {
-      if (!keeps.includes(field)) {
-        delete bodydata[field]
-      }
-    }
-    ctx.request.body.data = JSON.stringify(bodydata)
+    ctx.request.body.data = JSON.stringify(resolveKeepBody(bodydata, keeps))
   } else {
-    for (const field in ctx.request.body) {
-      if (!keeps.includes(field)) {
-        delete ctx.request.body[field]
-      }
-    }
+    ctx.request.body = resolveKeepBody(ctx.request.body, keeps)    
   }
-
 }
